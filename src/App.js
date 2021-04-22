@@ -6,6 +6,7 @@ import AgregarProducto from "./components/productos/AgregarProducto";
 import Navegacion from "./components/common/Navegacion";
 import Footer from "./components/common/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import EditarProducto from "./components/productos/EditarProducto";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route exact path="/productos/nuevo">
           <AgregarProducto></AgregarProducto>
+        </Route>
+        <Route exact path="/productos/editar">
+          <EditarProducto></EditarProducto>
         </Route>
       </Switch>
       <Footer></Footer>
