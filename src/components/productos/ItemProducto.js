@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, ListGroup } from "react-bootstrap";
 
-const ItemProducto = (props) => {
+const ItemProducto = () => {
   return (
     <ListGroup.Item className="d-flex justify-content-between">
       <p>Nombre del producto</p>
