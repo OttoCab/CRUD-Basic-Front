@@ -1,2 +1,9 @@
 npm -g json-server
 json-server --watch db.json --port 3004
+
+Error con la ejecucion de script esta deshabilitada en windos: solución 
+https://www.alexmedina.net/habilitar-la-ejecucion-de-scripts-para-powershell/
+
+abrimos el Windows PowerShell como administrador y ejecutamos el comando «Get-ExecutionPolicy» nos tendría que 
+devolver «Unrestricted» o lo que es lo mismo «Restringido». Para cambiar esta configuración basta con ejecutar 
+«Set-ExecutionPolicy Unrestricted».
