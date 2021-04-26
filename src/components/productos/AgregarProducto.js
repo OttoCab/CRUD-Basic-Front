@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Alert, Container, Form, Button } from "react-bootstrap";
+import Swal from "sweetalert2";
+
 
 const AgregarProducto = () => {
   const [nombreProducto, setNombreProducto] = useState("");
@@ -11,7 +13,7 @@ const AgregarProducto = () => {
     setCategoria(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     //console.log("prueba");
     // validar los datos
@@ -42,6 +44,40 @@ const AgregarProducto = () => {
         categoria,
       };
       console.log(producto);
+
+      try{
+        //aqui escribo normalmente el codigo
+        const datosEnviar={
+          method: "POST",
+          headers: {
+            "Content-Type":"application/json"
+          },
+          body: JSON.stringify(producto)
+        }
+        const respuesta = await fetch('http://localhost:3004/cafeteria', datosEnviar);
+        console.log(respuesta);
+
+        if (respuesta.status === 201) {
+          // mostar un cartel al usuario
+          Swal.fire(
+            'Producto Agregado',
+            'Se registro un nuevo producto',
+            'success'
+          )
+          // otras tareas
+        }
+        
+      }catch(error){
+        console.log(error);
+        //mostrar cartel al usuario
+        Swal.fire(
+          'Ocurrio un error',
+          'Intentelo en unos instantes',
+          'error'
+        )
+
+      }
+
     }
   };
 
