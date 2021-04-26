@@ -10,7 +10,7 @@ import EditarProducto from "./components/productos/EditarProducto";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [productos, setProductos] = useState({});
+  const [productos, setProductos] = useState([]);
 
   useEffect(() => {
     consultarApi();
