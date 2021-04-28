@@ -23,6 +23,18 @@
       "precioProducto": 25,
       "categoria": "Dulce",
       "id": 4
+    },
+    {
+      "nombreProducto": "Torta Oreo",
+      "precioProducto": 150,
+      "categoria": "Dulce",
+      "id": 5
+    },
+    {
+      "nombreProducto": "Sandwich de J/Q",
+      "precioProducto": 120,
+      "categoria": "Salado",
+      "id": 6
     }
   ]
 }
