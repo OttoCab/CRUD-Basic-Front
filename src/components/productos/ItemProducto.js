@@ -46,7 +46,7 @@ const ItemProducto = (props) => {
       <p>
         {props.producto.nombreProducto}
         <span className="font-weight-bold ml-3">
-          $ {props.producto.precioProducto}
+          ${props.producto.precioProducto}
         </span>
       </p>
 

@@ -17,12 +17,6 @@
       "precioProducto": 150,
       "categoria": "Dulce",
       "id": 5
-    },
-    {
-      "nombreProducto": "Cafe divertido",
-      "precioProducto": 100,
-      "categoria": "BebidaCaliente",
-      "id": 7
     }
   ]
 }
