@@ -8,16 +8,15 @@ import {
   FormLabel,
 } from "react-bootstrap";
 import Swal from "sweetalert2";
-import { useParams } from "react-router-dom";
-import {
-  campoRequerido,
-  camporRequerido,
-  rangoPrecio,
-} from "../common/helpers";
+import { useParams, withRouter } from "react-router-dom";
+// withRouter se usa para redireccionar
+import { campoRequerido, rangoPrecio } from "../common/helpers.js";
 
-const EditarProducto = () => {
+const EditarProducto = (props) => {
   // obtener el parametro
   const codProducto = useParams().id;
+  console.log(codProducto);
+  console.log("prueba");
   // const {cod} = useParams();
   // me creo una variable normal que tiene el valor de la propiedad de ese objeto
   // lo que vaya entre {} (la clave) tiene que tener el mismo nombre que la propiedad
@@ -47,13 +46,13 @@ const EditarProducto = () => {
     setCategoria(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let categoriaMod = categoria === "" ? producto.categoria : categoria;
-    // console.log(categoriaMod);
+    console.log(categoriaMod);
     // console.log(nombreProdRef);
     // console.log(nombreProdRef.current);
-    // console.log(nombreProdRef.current.value);
+    console.log(nombreProdRef.current.value);
     // validar los dato
     if (
       campoRequerido(nombreProdRef.current.value) &&
@@ -62,6 +61,34 @@ const EditarProducto = () => {
     ) {
       // si son correctos hago el request
       setError(false);
+
+      try {
+        const productoModificado = {
+          nombreProducto: nombreProdRef.current.value,
+          precioProducto: precioProdRef.current.value,
+          categoria: categoriaMod,
+        };
+        const respuesta = await fetch(URL, {
+          method: 'PUT',
+          headers: {"Content-Type":"application/json"},
+          body: JSON.stringify(productoModificado)
+        });
+        if (respuesta.status === 200) {
+          // se actualizaron los datos en la api (ventana de sweetalert)
+          Swal.fire(
+            'Producto Modificado',
+            'Se actualizaron los datos del producto',
+            'success'
+          )
+          // consultar la api
+            props.consultarApi();
+          // redireccionar 
+            props.history.push('/productos')
+        }
+      } catch (error) {
+        console.log(error);
+        // mostrar un cartel al usuario(sweetalert)
+      }
     } else {
       // si no muestro el cartel de error
       setError(true);
@@ -165,4 +192,4 @@ const EditarProducto = () => {
   );
 };
 
-export default EditarProducto;
+export default withRouter(EditarProducto);
