@@ -10,7 +10,7 @@ const ListarProducto = (props) => {
       <h1 className="text-center my-5">Lista de Productos</h1>
       <ListGroup className="my-5">
         {
-          props.productos.map((producto) => <ItemProducto producto={producto} key={producto.id} consultarApi={props.consultarApi}></ItemProducto> )
+          props.productos.map((producto) => <ItemProducto producto={producto} key={producto._id} consultarApi={props.consultarApi}></ItemProducto> )
         }        
         
       </ListGroup>

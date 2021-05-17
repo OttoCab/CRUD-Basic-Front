@@ -22,7 +22,7 @@ function App() {
   const consultarApi = async () => {
     try {
       const respuesta = await fetch(URL);
-      //console.log(respuesta);
+      console.log(respuesta);
       if (respuesta.status === 200) {
         const listaProductos = await respuesta.json();
         setProductos(listaProductos);

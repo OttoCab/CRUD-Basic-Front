@@ -54,14 +54,14 @@ const ItemProducto = (props) => {
       <div>
         <Link
           className="btn btn-warning text-light mr-3"
-          to={"/productos/editar/" + props.producto.id}
+          to={"/productos/editar/" + props.producto._id}
         >
           <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
         </Link>
         {/* <Button variant="warning" className="mr-3">Editar</Button> */}
         <Button
           variant="danger"
-          onClick={() => eliminarProducto(props.producto.id)}
+          onClick={() => eliminarProducto(props.producto._id)}
         >
           <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
         </Button>

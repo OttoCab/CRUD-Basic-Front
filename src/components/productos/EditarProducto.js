@@ -66,7 +66,7 @@ const EditarProducto = (props) => {
         const productoModificado = {
           nombreProducto: nombreProdRef.current.value,
           precioProducto: precioProdRef.current.value,
-          categoria: categoriaMod,
+          categoria: categoriaMod
         };
         const respuesta = await fetch(URL, {
           method: 'PUT',
