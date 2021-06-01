@@ -14,7 +14,7 @@ import { campoRequerido, rangoPrecio } from "../common/helpers.js";
 
 const EditarProducto = (props) => {
   // obtener el parametro
-  const codProducto = useParams().id;
+  const codProducto = useParams().idProd;
   console.log(codProducto);
   console.log("prueba");
   // const {cod} = useParams();

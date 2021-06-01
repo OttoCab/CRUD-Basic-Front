@@ -1,12 +1,6 @@
 {
   "cafeteria": [
     {
-      "nombreProducto": "Media luna",
-      "precioProducto": "250",
-      "categoria": "Dulce",
-      "id": 4
-    },
-    {
       "nombreProducto": "Torta Oreo",
       "precioProducto": "150",
       "categoria": "Dulce",
@@ -29,6 +23,12 @@
       "precioProducto": 90,
       "categoria": "BebidaFria",
       "id": 8
+    },
+    {
+      "nombreProducto": "Torta de chocolate",
+      "precioProducto": 600,
+      "categoria": "Dulce",
+      "id": 9
     }
   ]
 }

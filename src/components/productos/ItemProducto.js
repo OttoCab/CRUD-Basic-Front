@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const ItemProducto = (props) => {
-  const eliminarProducto = (id) => {
+  const eliminarProducto = (idProd) => {
     Swal.fire({
       title: "¿Esta seguro de eliminar el producto?",
       text: "No puede volver atras esta operacion luego de eliminar",
@@ -21,7 +21,7 @@ const ItemProducto = (props) => {
       if (result.isConfirmed) {
         //agregar la logica para borrar el producto
         try {
-          const URL = `${process.env.REACT_APP_API_URL}/${id}`;
+          const URL = `${process.env.REACT_APP_API_URL}/${idProd}`;
 
           const respuesta = await fetch(URL, {
             method: "DELETE",
@@ -52,17 +52,11 @@ const ItemProducto = (props) => {
         </span>
       </p>
       <div>
-        <Link
-          className="btn btn-warning text-light mr-3"
-          to={"/productos/editar/" + props.producto._id}
-        >
+        <Link className="btn btn-warning text-light mr-3" to={"/productos/editar/" + props.producto._id}>
           <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
         </Link>
         {/* <Button variant="warning" className="mr-3">Editar</Button> */}
-        <Button
-          variant="danger"
-          onClick={() => eliminarProducto(props.producto._id)}
-        >
+        <Button variant="danger" onClick={() => eliminarProducto(props.producto._id)}>
           <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
         </Button>
       </div>

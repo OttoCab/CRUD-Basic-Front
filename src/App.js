@@ -50,7 +50,7 @@ function App() {
         <Route exact path="/productos/nuevo">
           <AgregarProducto consultarApi={consultarApi}></AgregarProducto>
         </Route>
-        <Route exact path="/productos/editar/:id"> 
+        <Route exact path="/productos/editar/:idProd"> 
           {/* /: forma de indicar que va a venir un parametro */}
           {/* con "?"" indico que es optativo */}
           <EditarProducto consultarApi={consultarApi}></EditarProducto>
